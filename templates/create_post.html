@@ -1,8 +1,14 @@
 {% extends "base.html" %} {% block title %}Create post{% endblock %} 
 {% block base %} 
-<h1 align="center">Faça uma postagem</h1>
 <form method='POST'>
-    <textarea name="text" id="text" class="form-control"></textarea>
+    <div class="justify-content-center row g-3">
+        <p class="col-lg-6 font-monospace fw-bolder fs-4 text-dark">Escreva uma descrição para a postagem:</p>
+    </div>
+    <div class="justify-content-center row g-3">
+        <div class="col-lg-6">
+            <input type="text" name="text" id="text" class="form-control" placeholder="Descrição">
+        </div>
+    </div>
     <br/>
     <div align="center">
         <button type="submit" class="btn btn-lg btn-primary">Poste</button>

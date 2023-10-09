@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/favicon-16x.png') }}" type="image/png">
 </head>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark border border-light">
             <a class="navbar-brand" href="/">
                 <img class="col-md-4 img-fluid rounded" id="img-header" src="{{ url_for('static', filename='imgs/vl1.png') }}">
             </a>
@@ -27,6 +27,7 @@
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" id="menu" href="/">Home</a>
                         <a class="nav-item nav-link" id="menu" href="/history">Histórias</a>    
+                        <a class="nav-item nav-link" id="menu" href="/crie">Crie</a>
                         <a class="nav-item nav-link" id="menu" href="#">Adote!</a>
                     </div>
                 </div>
@@ -58,10 +59,10 @@
 {% block base %}{% endblock %}
 </html>
 
-    <footer class="text-center text-lg-start bg-dark text-muted">
+    <footer class="text-center text-lg-start text-muted">
         <div class="text-center p-4 border border-light">
             <a class="text-reset fw-bold" href="https://github.com/rherik">
-                Feito por Herik Cunha.
+                Feito por rherik.
             </a>
         </div>
         {% block footer %}{% endblock %}

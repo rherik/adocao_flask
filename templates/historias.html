@@ -8,9 +8,11 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="text-lg-left">
-                        
-                    </p>
+                    <ul>
+                    {% for i in Posts %}
+                        <li>{{ i.text }}</li>
+                    {% endfor %}
+                    </ul>
                 </div>
             </div>
             <br>

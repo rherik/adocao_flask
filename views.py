@@ -25,4 +25,5 @@ def create_post():
             db.session.add(post)
             db.session.commit()
             flash('Postagem criada!', category='success')
+       
     return render_template('create_post.html')

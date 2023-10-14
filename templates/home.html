@@ -1,21 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Adote um vira-lata{% endblock%}
 {% block base %}
-    <body>
         <main>
             <div class="offset-3 container-md">
-                <div class="container-fluid">
-                </div>
-                <img class="col-4 img-fluid rounded" src="{{ url_for('static', filename='imgs/vl1.png') }}" alt="Cachorra viralata preta sorridente.">
-            </div>
-            <div class="offset-3 container" id="link-insta">
-                <div class="col-2">
-                        Siga no instagram</button>
-                    </a>
+                <div class="container-fluid row">
+                <img class="col-3 img-fluid rounded" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}" alt="Cachorros vira-latas.">
+                <img class="col-3 img-fluid rounded" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}" alt="Cachorros vira-latas.">
                 </div>
             </div>
         </main>
-        {% block footer %}
-        {% endblock %}
-    </body>
 {% endblock %}

@@ -1,24 +1,10 @@
 {% extends "base.html" %}
-{% block title %}História{% endblock %}
+{% block title %}Histórias{% endblock %}
 {% block base %}
-    <section>
-        <div class="offset-3 container">
-            <div class="row">
-                <h2 class="col-12">Posts:</h2>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul>
-                    {% for i in Posts %}
-                        <li>{{ i.text }}</li>
-                    {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            <br>
-        </div>
-    </section>
+<section>      
+<h1 class="h2 lead"><strong>Postagens:</strong></h1>
+</br>
+{% include "posts_div.html" %}
 
-    {% block footer %}
-    {% endblock %}
+</section>
 {% endblock %}

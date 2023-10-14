@@ -16,27 +16,20 @@ header {
     margin-left: 8%;
 }
 
-#linha {
-    max-width: 5px;
-}
-
 #menu {
     margin: 2%;
 }
 body{
     min-height: 100vh;
-    position: relative;
     background: rgb(89,189,190);
     background: linear-gradient(77deg, rgba(89,189,190,1) 0%, rgba(223,181,92,1) 80%);
-
 }
 
-/*main, section {
-    padding-top: 6%;
-    padding-bottom: 13%;
+main, section {
+    padding: 5%;
     background: rgb(89,189,190);
     background: linear-gradient(77deg, rgba(89,189,190,1) 0%, rgba(223,181,92,1) 80%);
-}*/
+}
 
 #link-insta {
     padding-top: 20px;
@@ -54,8 +47,10 @@ form {
 }
 
 footer {
-    /*padding-top: 20%;
-    padding-bottom: 0%;*/
+    /*padding-top: 5%;
+    padding-bottom: 0;*/
     background: rgb(146, 98, 202);
     background: linear-gradient(77deg, rgb(89, 190, 176) 0%, rgb(223, 182, 92) 80%);
+    /*display: flex;
+    justify-content: baseline;*/
 }

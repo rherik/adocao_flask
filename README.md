@@ -1,5 +1,9 @@
 <h2>Projeto para aprendizado do framework Flask para desenvolver um blog de adoção de vira-latas.</h2>
 
+<p align="center">
+  <img src="./img_site.png" width="350" alt="site_adocao_viralatas">
+</p>
+
 <h3>Documentação das tecnologias utilizadas</h3>
 
 <h3>Tarefas:</h3>

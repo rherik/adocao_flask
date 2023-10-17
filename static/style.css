@@ -16,9 +16,9 @@ header {
     margin-left: 8%;
 }
 
-#menu {
-    margin: 2%;
-}
+/* #menu {
+    padding: 10%;
+} */
 body{
     min-height: 100vh;
     background: rgb(89,189,190);
@@ -26,7 +26,7 @@ body{
 }
 
 main, section {
-    padding: 5%;
+    padding: 7%;
     background: rgb(89,189,190);
     background: linear-gradient(77deg, rgba(89,189,190,1) 0%, rgba(223,181,92,1) 80%);
 }

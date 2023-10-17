@@ -18,6 +18,13 @@
     <li>flask run</li>
 </ol>
 
+<h3>Como rodar(Docker):</h3>
+<ol>
+    <li>docker build -t ~nome_da_imagem~ .</li>
+    <li>docker run -ip 5000:5000 ~nome_da_imagem~</li>
+</ol>
+
+
 <h2>Erro atual:</h2>
 <p>Ao deletar um post</p>
 <p>sqlalchemy.orm.exc.UnmappedInstanceError: Class 'builtins.NoneType' is not mapped</p>

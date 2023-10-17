@@ -6,9 +6,9 @@ from datetime import datetime
 views = Blueprint("views", __name__)
 
 @views.route("/")
-@views.route("/home", methods=['GET', 'POST'])
+@views.route("/inicio", methods=['GET', 'POST'])
 def home():
-    return render_template("home.html")
+    return render_template("inicio.html")
 
 @views.route("/historias", methods=['GET'])
 def historia():
@@ -39,7 +39,7 @@ def deletar():
     if request.method == "POST":
         post_id = request.form.get('post_id')
         print(post_id, type(post_id))
-        detet_post = Post.query.filter_by(id=int(post_id)).first()
+        detet_post = Post.query.filter_by(post_id).first()
         db.session.delete(detet_post)
         db.session.commit()
         flash('Postagem deletada!', category='success')
@@ -50,7 +50,7 @@ def atualizar():
     postes = Post.query.all()
     if request.method == "POST":
         post_id = request.form.get('post_id')
-        post_att = Post.query.filter_by(id=int(post_id)).first()
+        post_att = Post.query.filter_by(post_id).first()
         novo_texto = request.form.get('text')
         print(post_id, type(post_id), novo_texto, type(novo_texto))
 

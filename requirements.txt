@@ -3,3 +3,5 @@ sqlalchemy>=2.0
 flask-sqlalchemy>=3.1
 flask-migrate>=4.0
 python-dotenv
+Flask-Uploads
+flask-migrate

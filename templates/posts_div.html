@@ -3,7 +3,7 @@
         {% for p in posts %}
         <div class="col">
             <div class="card" style="width: 18rem;">{{ p.id }}
-                <img src="..." class="card-img-top" alt="...">
+                <img src={{ p.foto }} class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ p.date_created }}</h5>
                     <p class="card-text">{{ p.text }}</p>

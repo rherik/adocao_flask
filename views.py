@@ -24,10 +24,13 @@ def retorna_posts():
 def create_post():
     if request.method == "POST":
         text = request.form.get('text')
+        foto = request.form.get('image')
         if not text:
             flash('Post não pode estar vazio', category='error')
+        elif not foto:
+            flash('Insira uma foto', category='error')
         else:
-            post = Post(text=text)
+            post = Post(text=text, foto=foto)
             db.session.add(post)
             db.session.commit()
             flash('Postagem criada!', category='success')
@@ -38,8 +41,7 @@ def deletar():
     postes = Post.query.all()
     if request.method == "POST":
         post_id = request.form.get('post_id')
-        print(post_id, type(post_id))
-        detet_post = Post.query.filter_by(post_id).first()
+        detet_post = Post.query.filter_by(id=int(post_id)).first()
         db.session.delete(detet_post)
         db.session.commit()
         flash('Postagem deletada!', category='success')

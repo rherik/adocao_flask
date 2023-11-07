@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, flash
-from db import db
+from flask import Blueprint, render_template, request, flash, redirect
 from models import Post
 from datetime import datetime
+import os
+from db import db
 
 views = Blueprint("views", __name__)
 
@@ -30,10 +31,15 @@ def create_post():
         elif not foto:
             flash('Insira uma foto', category='error')
         else:
+            # if request.files:
+            #     image = request.files["image"]
+            #     image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
+            #     return redirect(request.url)
             post = Post(text=text, foto=foto)
             db.session.add(post)
             db.session.commit()
             flash('Postagem criada!', category='success')
+            return redirect('/historias')
     return render_template('criar_post.html')
 
 @views.route("/deletar", methods=['GET', 'POST'])
@@ -45,6 +51,7 @@ def deletar():
         db.session.delete(detet_post)
         db.session.commit()
         flash('Postagem deletada!', category='success')
+        return redirect('/deletar')
     return render_template('deletar.html', posts=postes)
 
 @views.route('/atualizar', methods=['GET', 'POST'])

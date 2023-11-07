@@ -1,8 +1,9 @@
 <h2>Projeto para aprendizado do framework Flask para desenvolver um blog de adoção de vira-latas.</h2>
 
-<p align="center">
-  <img src="./img_site.png" width="850" alt="site_adocao_viralatas">
+<p>
+  <img src="static/imgs/img_site.png" width="850" alt="site_adocao_viralatas">
 </p>
+<h3>Imagens obtidas do pinterest</h3>
 
 <h3>Documentação das tecnologias utilizadas</h3>
 
@@ -30,6 +31,6 @@
 
 
 <h2>Erro atual:</h2>
-<p>Ao deletar um post</p>
+<p>Consertar erro ao deletar um post ele continua a ser listado(Forçar recarregamento da página)</p>
 <p>sqlalchemy.orm.exc.UnmappedInstanceError: Class 'builtins.NoneType' is not mapped</p>
-
+<p></p>

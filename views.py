@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect
 from models import Post
 from datetime import datetime
-import os
 from db import db
 
 views = Blueprint("views", __name__)
@@ -31,10 +30,6 @@ def create_post():
         elif not foto:
             flash('Insira uma foto', category='error')
         else:
-            # if request.files:
-            #     image = request.files["image"]
-            #     image.save(os.path.join(app.config["IMAGE_UPLOADS"], image.filename))
-            #     return redirect(request.url)
             post = Post(text=text, foto=foto)
             db.session.add(post)
             db.session.commit()
@@ -59,12 +54,12 @@ def atualizar():
     postes = Post.query.all()
     if request.method == "POST":
         post_id = request.form.get('post_id')
-        post_att = Post.query.filter_by(post_id).first()
+        post_att = Post.query.get_or_404(post_id)
         novo_texto = request.form.get('text')
         print(post_id, type(post_id), novo_texto, type(novo_texto))
 
         post_att.text = novo_texto
-        post_att.date_created = datetime.now().date()
+        post_att.date_created = datetime.now()
 
         db.session.commit()
         flash('Postagem atualizada!', category='success')

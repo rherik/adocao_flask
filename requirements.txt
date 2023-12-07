@@ -6,3 +6,4 @@ python-dotenv
 Flask-Uploads
 flask-migrate
 boto3
+gunicorn

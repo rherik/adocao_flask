@@ -47,7 +47,7 @@ def deletar():
     postes = Post.query.all()
     if request.method == "POST":
         post_id = request.form.get('post_id')
-        detet_post = Post.query.filter_by(id=int(post_id)).first()
+        detet_post = Post.query.get_or_404(post_id)
         db.session.delete(detet_post)
         db.session.commit()
         flash('Postagem deletada!', category='success')
@@ -64,7 +64,7 @@ def atualizar():
         print(post_id, type(post_id), novo_texto, type(novo_texto))
 
         post_att.text = novo_texto
-        post_att.date_created = datetime.now()
+        post_att.date_created = datetime.now().date()
 
         db.session.commit()
         flash('Postagem atualizada!', category='success')

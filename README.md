@@ -31,6 +31,4 @@
 
 
 <h2>Erro atual:</h2>
-<p>Consertar erro ao deletar um post ele continua a ser listado(Forçar recarregamento da página)</p>
-<p>sqlalchemy.orm.exc.UnmappedInstanceError: Class 'builtins.NoneType' is not mapped</p>
 <p></p>

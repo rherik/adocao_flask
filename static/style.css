@@ -1,3 +1,17 @@
+/* :root.dark-mode {
+    --text-dark: #fbf2f2;
+    --text-light: #000;
+    --text-muted: #595959;
+  
+    --background-color: #1c2023;
+    --accent-colour: #f56565;
+    --accent-colour-2: #3bb54a;
+    --tag-colour: var(--accent-colour-2);
+  
+    --border: 3px solid #fff;
+} */
+  
+
 header {
     background: rgb(146, 98, 202);
     background: linear-gradient(77deg, rgb(89, 190, 176) 0%, rgb(223, 182, 92) 80%);
@@ -21,6 +35,19 @@ body{
     background: rgb(89,189,190);
     background: linear-gradient(77deg, rgba(89,189,190,1) 0%, rgba(223,181,92,1) 80%);
 }
+
+/* :root {
+    --text-dark: #000;
+    --text-light: #fbf2f2;
+    --text-muted: #595959;
+  
+    --background-color: #994949;
+    --accent-colour: #f56565;
+    --accent-colour-2: #3bb54a;
+    --tag-colour: #e5e5e5;
+  
+    --border: 3px solid #000;
+} */
 
 main, section {
     padding: 7%;

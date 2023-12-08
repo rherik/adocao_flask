@@ -54,10 +54,15 @@ body{
 } */
 
 main, section {
-    padding: 7%;
+    padding: min(10%);
     background: rgb(89,189,190);
     background: linear-gradient(77deg, rgba(89,189,190,1) 0%, rgba(223,181,92,1) 80%);
 }
+.custom-dropdown-container {
+    width: 50%; /* Ajuste a porcentagem conforme necessário */
+    margin: 0 auto; /* Isso centralizará o contêiner na tela */
+}
+
 
 #cor_button {
     background-color: #ec95d2;

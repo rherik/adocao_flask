@@ -1,14 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Adote um vira-lata{% endblock%}
+{% block title %}Adote Vira-latas{% endblock%}
 {% block base %}
-        <main>
-            <div class="offset-3 container">
-                <div class="container col" style="border-radius: 25px;">
-                    <img class="col-3 rounded" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}" alt="Cachorros vira-latas.">
-                    <img class="col-3 rounded" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}" alt="Cachorros vira-latas.">
-                    <p>Conheça o trabalho, e se puder contribua,
-                         do MTST castração e cuidado de animais:</p>
-                </div>
+<main>
+    <div id="caixa-1">
+        <p class="font-monospace text-left fs-4" id="texto-mtst">
+            <small>Conheça o trabalho do MTST de castração e cuidado de animais.
+            <br>Se puder, contribua:</small>        
+            <a href="https://www.instagram.com/animais_sem_teto/" target="_blank">
+                <img id="img_insta" src="{{ url_for('static', filename='imgs/instagram.png')}}" alt="">
+            </a>
+        </p>
+        <div class="container row">
+            <div class="container col-1">
+                <img id="img_body-1" class="rounded" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}" alt="Cachorros vira-latas.">
             </div>
-        </main>
+        
+            <div class="container col-2">
+                <img id="img_body-2" class="rounded" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}" alt="Cachorros vira-latas.">
+            </div>    
+        </div>  
+    </div>  
+</main>
 {% endblock %}

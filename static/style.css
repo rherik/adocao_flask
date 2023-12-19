@@ -7,8 +7,8 @@
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.25);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.25);
 } */
-#caixa-1 {
-    padding-top: -3%;
+#caixa {
+    padding-top: 3%;
     padding-left: 1%;
     padding-bottom: 1%;
     font-size: 5px;
@@ -60,7 +60,7 @@ p {
 }
 
 body{
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #8a55b6, #23d5ab);
+    background: linear-gradient(-45deg, #4c4c4c, #aaa9a9, #8a55b6, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
@@ -77,19 +77,20 @@ body{
 	}
 }
 
-main, section {
-    padding-top: 1%;
+main, section, form {
+    padding-top: 0%;
     padding-bottom: min(8%);
 }
 
-form {
+/* form {
     padding-top: 6%;
     padding-bottom: 13%;
     padding-bottom: min(21%);
-}
+} */
 
-footer {
-    padding-top: 8%;
+#footer {
+    position: static;
+    bottom: 0%;
     width: 100%;
-    height: 2.5rem;
+    padding-top: min(20%);
 }

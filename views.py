@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect
-from models import Post
+from models import Post, User, UserForm
 from datetime import datetime
 from db import db
 
@@ -64,3 +64,17 @@ def atualizar():
         db.session.commit()
         flash('Postagem atualizada!', category='success')
     return render_template('atualizar.html', posts=postes)
+
+@views.route('/cadastrar', methods=['GET', 'POST'])
+def cadastrar():
+    username = request.form.get('username')
+    senha1 = request.form.get('password1')
+    senha2 = request.form.get('password2')
+    formulario = UserForm()
+    # if formulario.validate_on_submit:
+    #     user = User.query.filter_by(username).first()
+    #     if user == None:
+    #         user = User(name=formulario.name.data, password=formulario.password.data)
+        # if senha1 == senha2:
+        #     pass
+    return render_template('signup.html')

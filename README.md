@@ -8,7 +8,7 @@
 - Flask
 - Docker
 - Gunicorn
-- SQLite3
+- ElephantSQL
 - Bootstrap5
 
 ### Tarefas:

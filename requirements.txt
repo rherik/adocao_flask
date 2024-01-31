@@ -6,5 +6,5 @@ flask-wtf
 python-dotenv
 Flask-Uploads
 flask-migrate
-boto3
+psycopg2-binary
 gunicorn

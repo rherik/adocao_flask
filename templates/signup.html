@@ -3,7 +3,7 @@
 {% block base %}
     <form method="POST">
         <h3 align="center">Cadastro</h3>
-        <div class="form-group">
+        <div class="form-group shadow p-3 mb-5 bg-body rounded">
             <!--<label for="email">Insira seu e-mail</label>
             <input 
                 type="text" 
@@ -15,8 +15,8 @@
             <label for="username">Nome</label>
             <input 
                 type="text" 
-                id="username" 
-                name="username" 
+                id="name" 
+                name="name" 
                 class="form-control" 
                 placeholder="Insira seu nome de usuário"/>
     
@@ -41,4 +41,8 @@
             <button class="btn btn-primary" type="submit">Cadastre-se</button>
         </div>
     </form>
+    <br/><br/>
+    {% for our_user in our_users %}
+        {{ our_user.id }}-{{ our_user.name }}-{{our_user.date_added}}<br/>
+    {% endfor %}
 {% endblock %}

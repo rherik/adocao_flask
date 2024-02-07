@@ -2,22 +2,21 @@
 
 ![site_adocao_viralatas](static/imgs/img_site.png)
 
-#### Imagens obtidas do pinterest
 
 ### Tecnologias utilizadas:
 - Flask
 - Docker
 - Gunicorn
 - ElephantSQL
+- AWS s3 Bucket
 - Bootstrap5
 
 ### Tarefas:
-
-  &#9744; Adicionar opção de cadastrar imagem no banco de dados
-
   &#9744; Implementar cadastro e login de usuários
 
-  &#9745; Refatorar css
+  &#9744; Padding-botton minima do footer
+
+  &#9745; Adicionar opção de cadastrar imagem no banco de dados
 
   &#9745; Consertar navbar
     

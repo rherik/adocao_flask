@@ -8,3 +8,4 @@ Flask-Uploads
 flask-migrate
 psycopg2-binary
 gunicorn
+boto3

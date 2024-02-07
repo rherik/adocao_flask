@@ -101,9 +101,12 @@ main, section, form{
     padding-top: 0%;
     padding-bottom: var(--space-lg);
 }
+small, br {
+    padding-left: var(--space-lg);
+}
 #footer{
     position: static;
-    bottom: 0%;
+    padding-bottom: min(1px);
     width: 100%;
     padding-top: min(20%);
 }

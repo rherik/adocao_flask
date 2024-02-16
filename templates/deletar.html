@@ -7,7 +7,7 @@
             <div class="col-mg">
                 <option selected>Abra este menu e selecione a postagem a ser deletada</option>
                 {% for p in posts %}
-                    <option value="{{ p.id }}" class="form-control">{{ p.id }} - {{ p.text }}</option>
+                    <option value="{{ p.id }}" class="form-control">{{ p.id }} - {{ p.title }}</option>
                 {% endfor %}
             </div>
         </div>

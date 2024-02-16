@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block title %} Atualize uma postagem {% endblock %}
 {% block base %}
-<form method='POST'>
+<form method="POST" enctype="multipart/form-data">
     <select name="post_id" class="form-select" aria-label="Default select example">
         <div class="justify-content-center row g-3">
             <div class="col-lg-6">
-            <option selected>Abra este menu e selecione a postagem a ser atualizada</option>
-            {% for p in posts %}
-                <option value="{{ p.id }}" class="form-control">{{ p.id }} - {{ p.text }}</option>
-            {% endfor %}
+                <option selected>Abra este menu e selecione a postagem a ser atualizada</option>
+                {% for p in posts %}
+                    <option value="{{ p.id }}" class="form-control">{{ p.id }} - {{ p.title }}</option>
+                {% endfor %}
             </div>
         </div>
       </select>
@@ -16,13 +16,21 @@
     <div class="justify-content-center row g-3">
         <p class="col-lg-6 font-monospace fw-bolder fs-4">Escreva uma descrição para atualizar a postagem:</p>
     </div>
+
     <div class="justify-content-center row g-3">
         <div class="col-lg-6">
+            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo">
             <input type="text" name="text" id="text" class="form-control" placeholder="Descrição">
+            
+            <br/>
+            <div class="file-path-wrapper">
+                <p class="col-lg-6 font-monospace fw-bolder fs-4">Insira a imagem:</p>
+                <input class="form-control" type="file" name="imagem">
+            </div>
         </div>
     </div>
+    
     <br/>
-
     <div align="center">
         <button type="submit" class="btn btn-lg btn-warning">Atualizar</button>
     </div>

@@ -1,6 +1,21 @@
 :root{
     /* Colors */
     --bkg: linear-gradient(-45deg, #4c4c4c, #aaa9a9, #8a55b6, #23d5ab);
+    
+    /* colors ligth*/
+    --lm-bkg: hsl(248, 20%, 84%);
+    --lm-muted: hsl(248 15.7% 50%);
+    --lm-text: hsl(246, 33%, 25%);
+    --lm-accent: hsl(245 75% 54.5%);
+    --lm-accent2: hsla(40, 94%, 47%, 0.827);
+
+    /* colors dark */
+    --dm-bkg: hsl(252, 6%, 16%);
+    --dm-muted: hsl(248, 15.7%, 40%);
+    --dm-text: hsl(246, 76%, 90%);
+    --gray-light: 229, 233, 240;
+    --dm-accent: hsl(277, 43%, 39%);
+    --dm-accent2: hsla(40, 49%, 34%, 0.874);
 
     /* Fontes */
     --fs-200: 14px;
@@ -22,8 +37,8 @@
     --round-full: 100vmax;    
 }
 body{
-    /* body alternativo */
-    /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
+    display: flex;
+    flex-direction: column;
     font-size: var(--fs-400);
     line-height: var(--lh-1-4);
     font-weight: 400;
@@ -35,13 +50,39 @@ body{
     color: var(--text);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
-
-    /* body original */
-    /* background: linear-gradient(-45deg, #4c4c4c, #aaa9a9, #8a55b6, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh; */
-}#caixa{
+}
+#texto-intro {
+    display: flex;
+    flex-direction: column;
+}
+#texto1 {
+    font-size: var(--fs-300);
+    color: var(--lm-text);
+    padding-left: 4rem;
+}
+#texto2 {
+    font-size: var(--fs-300);
+    color: var(--lm-text);
+    padding-top: 1rem;
+    padding-left: 8rem;
+}
+#texto3 {
+    font-size: var(--fs-300);
+    color: var(--lm-text);
+    padding-top: 1rem;
+    padding-left: 12rem;
+    padding-bottom: 2rem;
+}
+main, section, form{
+    padding-bottom: min(25rem);
+}
+#footer{
+    position: fixed;
+    display: contents;
+    bottom: 0;
+    width: 100%;
+}
+#caixa{
     justify-content: space-around;
     padding-top: var(--space-lg);
     font-size: 5px;
@@ -96,17 +137,4 @@ p{
 	100% {
 		background-position: 0% 50%;
 	}
-}
-main, section, form{
-    padding-top: 0%;
-    padding-bottom: var(--space-lg);
-}
-small, br {
-    padding-left: var(--space-lg);
-}
-#footer{
-    position: static;
-    padding-bottom: min(1px);
-    width: 100%;
-    padding-top: min(20%);
 }

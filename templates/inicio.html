@@ -3,23 +3,18 @@
 {% block base %}
 <main>
     <div id="caixa">
-        <div>
-        <p class="font-monospace text-left fs-4">
-            <small>Conheça o trabalho desta ong.
-            <br>Se puder, contribua:</small>        
-            <a href="https://www.instagram.com/animais_sem_teto/" target="_blank">
-                <img id="img_insta" src="{{ url_for('static', filename='imgs/instagram.png')}}" alt="">
-            </a>
-        </p>
+        <div id="texto-intro">
+            <small id="texto1">
+                Este é um projeto de incentivo à adoção de vira-latas.
+            </small>
+            <small id="texto2">Atualmente vemos uma população de cachorros de rua
+                <br>que poderiam fazer bom uso de um lar.
+            </small>   
+            <small id="texto3">
+                Eles são muito amáveis e inteligentes.
+            </small>     
         </div>
-        <div class="container_images">
-            <div class="container col-1">
-                <img id="fotos" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}" alt="Cachorros vira-latas.">
-            </div>
-            <div class="container col-2">
-                <img id="fotos" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}" alt="Cachorros vira-latas.">
-            </div>    
-        </div>  
+
     </div>  
 </main>
 {% endblock %}

@@ -16,6 +16,8 @@
 
   &#9744; Padding-botton minima do footer
 
+  &#9744; Remover bootstrap e transferir histórias para a página inicial
+
   &#9745; Adicionar opção de cadastrar imagem no banco de dados
 
   &#9745; Consertar navbar

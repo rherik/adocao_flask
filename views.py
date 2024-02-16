@@ -38,22 +38,24 @@ def create_post():
         if not text:
             flash('Post não pode estar vazio', category='error')
         else:
-            # INICIO DO TRATAMENTO DA IMAGEM
+            # Inicio do tratamento da imagem
             uploaded_file = request.files["imagem"]
             if not allowed_files(uploaded_file.filename):
                 flash("Tipo de arquivo não permitido", category='error')
 
             # Definição do arquivo
             new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.', 1)[1].lower()
-            bucket_name = "arquivos-blogviralatas"
+
+            # !!!!! ALTERAR ANTES DO DEPLOY !!!!
+            bucket_name = "arquivo-local"
             regiao = "sa-east-1"
 
             s3 = boto3.client("s3", 
                             aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
                             aws_secret_access_key=os.getenv('AWS_ACCESS_KEY_SECRET'))
-            # ARMAZENA A FOTO NO BALDE AWS
+            # Armazena a imagem no bucket aws
             s3.upload_fileobj(uploaded_file, bucket_name, new_filename)
-            # FIM DO TRATAMENTO DA IMAGEM
+            # Fim do tratamento da imagem
             url_img = f"https://{bucket_name}.s3.{regiao}.amazonaws.com/{new_filename}"
 
             post = Post(title=titulo, 
@@ -97,6 +99,7 @@ def atualizar():
         flash('Postagem atualizada!', category='success')
     return render_template('atualizar.html', posts=postes)
 
+# Cadastra Usuário
 # @views.route('/cadastrar', methods=['GET', 'POST'])
 # def cadastrar():
 #     name = None

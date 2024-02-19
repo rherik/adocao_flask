@@ -63,18 +63,18 @@ body{
 #texto2 {
     font-size: var(--fs-300);
     color: var(--lm-text);
-    padding-top: 1rem;
+    padding-top: var(--space-md);
     padding-left: 8rem;
 }
 #texto3 {
     font-size: var(--fs-300);
     color: var(--lm-text);
-    padding-top: 1rem;
+    padding-top: var(--space-md);
     padding-left: 12rem;
-    padding-bottom: 2rem;
+    padding-bottom: var(--space-sm);
 }
-main, section, form{
-    padding-bottom: min(25rem);
+section, form{
+    padding-bottom: min(16rem);
 }
 #footer{
     position: fixed;
@@ -95,6 +95,8 @@ main, section, form{
     border: 1px solid #f0f0f0;
 }
 p{
+    padding-top: var(--space-sm);
+    padding-left: var(--space-sm);
     border: var(--space-lg);
     color: aliceblue;
     opacity: 0.8;
@@ -119,13 +121,17 @@ p{
 .container_images{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    padding: var(--space-lg);
+    padding-bottom: var(--space-md);
 }
 #fotos{
     min-width: 200px;
     max-width: 400px;
     min-height: 480px;
     aspect-ratio: 16/12;
-    border-radius: var(--round-sm);
+    border-radius: var(--round-full);
+    padding: var(--space-lg);
 }
 @keyframes gradient{
 	0% {

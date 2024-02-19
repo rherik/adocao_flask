@@ -14,9 +14,9 @@
 ### Tarefas:
   &#9744; Implementar cadastro e login de usuários
 
-  &#9744; Padding-botton minima do footer
-
   &#9744; Remover bootstrap e transferir histórias para a página inicial
+
+  &#9745; Padding-botton minima do footer
 
   &#9745; Adicionar opção de cadastrar imagem no banco de dados
 

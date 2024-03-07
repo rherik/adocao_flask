@@ -8,6 +8,14 @@ from dotenv import load_dotenv
 import os
 
 ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'HEIC']
+# Variáveis boto3
+load_dotenv()
+s3 = boto3.client("s3", 
+                aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
+                aws_secret_access_key=os.getenv('AWS_ACCESS_KEY_SECRET'))
+
+bucket_name = "arquivos-blogviralatas"
+regiao = "sa-east-1"
 
 def allowed_files(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
@@ -31,7 +39,6 @@ def retorna_posts():
 
 @views.route("/crie", methods=['GET', 'POST'])
 def create_post():
-    load_dotenv()
     if request.method == "POST":
         titulo = request.form.get('titulo')
         text = request.form.get('text')
@@ -41,18 +48,11 @@ def create_post():
             # Inicio do tratamento da imagem
             uploaded_file = request.files["imagem"]
             if not allowed_files(uploaded_file.filename):
-                flash("Tipo de arquivo não permitido", category='error')
+                return flash("Tipo de arquivo não permitido", category='error')
 
             # Definição do arquivo
             new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.', 1)[1].lower()
 
-            # !!!!! ALTERAR ANTES DO DEPLOY !!!!
-            bucket_name = "arquivo-local"
-            regiao = "sa-east-1"
-
-            s3 = boto3.client("s3", 
-                            aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
-                            aws_secret_access_key=os.getenv('AWS_ACCESS_KEY_SECRET'))
             # Armazena a imagem no bucket aws
             s3.upload_fileobj(uploaded_file, bucket_name, new_filename)
             # Fim do tratamento da imagem
@@ -75,8 +75,19 @@ def deletar():
     postes = Post.query.all()
     if request.method == "POST":
         post_id = request.form.get('post_id')
-        detet_post = Post.query.get_or_404(post_id)
-        db.session.delete(detet_post)
+        delet_post = Post.query.get_or_404(post_id)
+
+        # Deletar imagem com boto3
+        filename = delet_post.foto
+        url_img = f"https://{bucket_name}.s3.{regiao}.amazonaws.com/"
+
+        new_filename = filename.strip(url_img)
+        # Deleta imagem
+        s3.delete_object(
+            Bucket=bucket_name,
+            Key=new_filename
+        )
+        db.session.delete(delet_post)
         db.session.commit()
         flash('Postagem deletada!', category='success')
         return redirect('/deletar')

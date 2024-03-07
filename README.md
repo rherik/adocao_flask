@@ -44,4 +44,4 @@ Ou
 
 
 ### Erro atual:
-- 
+- Verificação de upload de imagens

@@ -1,25 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Adote Vira-latas{% endblock %}
+{% block title %}Histórias{% endblock %}
 {% block base %}
-<main>
-    <div id="caixa">
-        <div id="texto-intro">
-            <small id="texto1">
-                Este é um projeto de incentivo à adoção de vira-latas.
-            </small>
-            <small id="texto2">Atualmente vemos uma população de cachorros de rua
-                <br>que poderiam fazer bom uso de um lar, <br>então dê preferência à adoção de cachorros que se encontram na rua.
-            </small>   
-            <small id="texto3">
-                Eles são muito amáveis e inteligentes.
-            </small>     
-        </div>
-    </div>  
-    <div id="caixa">
-        <div class="container_images">
-            <img id="fotos" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}">
-            <img id="fotos" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}">            
-        </div>
-    </div>
-</main>
+<p class="font-monospace fs-4">
+    <small>Histórias de adoções:</small>
+</p>
+<section>      
+</br>
+{% include "posts_div.html" %}
+
+</section>
 {% endblock %}

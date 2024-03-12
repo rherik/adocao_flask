@@ -13,8 +13,7 @@ load_dotenv()
 s3 = boto3.client("s3", 
                 aws_access_key_id=os.getenv('AWS_ACCESS_KEY'),
                 aws_secret_access_key=os.getenv('AWS_ACCESS_KEY_SECRET'))
-
-bucket_name = "arquivos-blogviralatas"
+bucket_name = os.getenv('bucket')
 regiao = "sa-east-1"
 
 def allowed_files(filename):
@@ -22,15 +21,15 @@ def allowed_files(filename):
 
 views = Blueprint("views", __name__)
 
-@views.route("/")
-@views.route("/inicio", methods=['GET', 'POST'])
-def home():
-    return render_template("inicio.html")
+@views.route("/sobre", methods=['GET', 'POST'])
+def sobre():
+    return render_template("sobre.html")
 
-@views.route("/historias", methods=['GET'])
-def historia():
+@views.route("/")
+@views.route("/inicio", methods=['GET'])
+def inicio():
     postes = Post.query.all()
-    return render_template("historias.html", posts=postes)
+    return render_template("inicio.html", posts=postes)
 
 @views.route('/posts_div', methods=['GET'])
 def retorna_posts():
@@ -67,7 +66,7 @@ def create_post():
             db.session.add(post)
             db.session.commit()
             flash('Postagem criada!', category='success')
-            return redirect('/historias')
+            return redirect('/')
     return render_template('criar_post.html')
 
 @views.route("/deletar", methods=['GET', 'POST'])

@@ -7,7 +7,7 @@ import uuid
 from dotenv import load_dotenv
 import os
 
-ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'HEIC']
+ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'heic']
 # Variáveis boto3
 load_dotenv()
 s3 = boto3.client("s3", 
@@ -17,7 +17,11 @@ bucket_name = os.getenv('bucket')
 regiao = "sa-east-1"
 
 def allowed_files(filename):
-    return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+    extensao_arq = filename.rsplit('.')[-1].lower()
+    if extensao_arq in ALLOWED_EXTENSIONS:
+        return True
+    else:
+        return False
 
 views = Blueprint("views", __name__)
 
@@ -47,7 +51,8 @@ def create_post():
             # Inicio do tratamento da imagem
             uploaded_file = request.files["imagem"]
             if not allowed_files(uploaded_file.filename):
-                return flash("Tipo de arquivo não permitido", category='error')
+                flash("Tipo de arquivo não permitido", category='error')
+                return redirect('/crie')
 
             # Definição do arquivo
             new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.', 1)[1].lower()

@@ -54,12 +54,13 @@ body{
 #texto-intro {
     display: flex;
     align-items: start;
+    justify-content: space-between;
+    align-content: space-around;
 }
 #texto {
     font-size: var(--fs-300);
     color: var(--lm-text);
     padding-left: 4rem;
-    padding-top: 6rem;
 }
 #texto2 {
     font-size: var(--fs-300);

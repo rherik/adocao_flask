@@ -45,8 +45,14 @@ def create_post():
     if request.method == "POST":
         titulo = request.form.get('titulo')
         text = request.form.get('text')
-        if not text:
-            flash('Post não pode estar vazio', category='error')
+        url_insta = request.form.get('insta_url')
+        # Checagem dos inputs
+        if 'https://www.instagram.com/' not in url_insta:
+            flash('Url do instagram está incorreta, verifique se a sua url começa com https://', category='error')
+            return redirect('/crie')
+        elif not text:
+            flash('Descrição não pode estar vazia', category='error')
+            return redirect('/crie')
         else:
             # Inicio do tratamento da imagem
             uploaded_file = request.files["imagem"]
@@ -65,7 +71,8 @@ def create_post():
             post = Post(title=titulo, 
                         text=text, 
                         date_created=datetime.now().strftime('%d/%m/%Y'),
-                        foto=url_img
+                        foto=url_img,
+                        url=url_insta
                         )
 
             db.session.add(post)

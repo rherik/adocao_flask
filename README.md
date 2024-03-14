@@ -16,6 +16,8 @@
 
   &#9744; Remover bootstrap e transferir histórias para a página inicial
 
+  &#9744; Atualizar função de update para atualizar imagem e url de instagram
+
   &#9745; Padding-botton minima do footer
 
   &#9745; Adicionar opção de cadastrar imagem no banco de dados
@@ -44,4 +46,5 @@ Ou
 
 
 ### Erro atual:
-- Verificação de upload de imagens
+- Não remove imagem do bucket aws ao deletar post em produção
+- Padding da página deletar

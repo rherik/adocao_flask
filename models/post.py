@@ -9,3 +9,4 @@ class Post(db.Model):
     text = db.Column(db.String(255), nullable=False)
     date_created = db.Column(db.String(255), nullable=False)
     foto = db.Column(db.String(255), nullable=False)
+    url = db.Column(db.String(255))

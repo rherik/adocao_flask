@@ -16,7 +16,7 @@
 
   &#9744; Remover bootstrap e transferir histórias para a página inicial
 
-  &#9744; Atualizar função de update para atualizar imagem e url de instagram
+  &#9745; Atualizar função de update para atualizar imagem e url de instagram
 
   &#9745; Padding-botton minima do footer
 

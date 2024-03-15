@@ -22,6 +22,16 @@ def allowed_files(filename):
         return True
     else:
         return False
+    
+def retorna_arquivo(arq):
+    # Definição do arquivo
+    new_filename = uuid.uuid4().hex + '.' + arq.filename.rsplit('.', 1)[1].lower()
+    # Armazena a imagem no bucket aws
+    s3.upload_fileobj(arq, bucket_name, new_filename)
+    # Fim do tratamento da imagem
+    url_img = f"https://{bucket_name}.s3.{regiao}.amazonaws.com/{new_filename}"
+    return url_img
+
 
 views = Blueprint("views", __name__)
 
@@ -46,6 +56,8 @@ def create_post():
         titulo = request.form.get('titulo')
         text = request.form.get('text')
         url_insta = request.form.get('insta_url')
+        uploaded_file = request.files["imagem"]
+
         # Checagem dos inputs
         if 'https://www.instagram.com/' not in url_insta:
             flash('Url do instagram está incorreta, verifique se a sua url começa com https://', category='error')
@@ -55,19 +67,11 @@ def create_post():
             return redirect('/crie')
         else:
             # Inicio do tratamento da imagem
-            uploaded_file = request.files["imagem"]
             if not allowed_files(uploaded_file.filename):
                 flash("Tipo de arquivo não permitido", category='error')
                 return redirect('/crie')
 
-            # Definição do arquivo
-            new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.', 1)[1].lower()
-
-            # Armazena a imagem no bucket aws
-            s3.upload_fileobj(uploaded_file, bucket_name, new_filename)
-            # Fim do tratamento da imagem
-            url_img = f"https://{bucket_name}.s3.{regiao}.amazonaws.com/{new_filename}"
-
+            url_img = retorna_arquivo(uploaded_file)
             post = Post(title=titulo, 
                         text=text, 
                         date_created=datetime.now().strftime('%d/%m/%Y'),
@@ -112,13 +116,41 @@ def atualizar():
         post_att = Post.query.get_or_404(post_id)
         novo_titulo = request.form.get('titulo')
         novo_texto = request.form.get('text')
+        nova_foto = request.files["imagem"]
+        nova_url_insta = request.form.get('insta_url')
 
-        post_att.title = novo_titulo
-        post_att.text = novo_texto
-        post_att.date_created = datetime.now().strftime('%d/%m/%Y')
+        # Checagem dos inputs
+        if 'https://www.instagram.com/' not in nova_url_insta:
+            flash('Url do instagram está incorreta, verifique se a sua url começa com https://', category='error')
+            return redirect('/atualizar')
+        elif not novo_texto:
+            flash('Descrição não pode estar vazia', category='error')
+            return redirect('/atualizar')
+        elif not allowed_files(nova_foto.filename):
+                flash("Tipo de arquivo não permitido", category='error')
+                return redirect('/atualizar')
+        else:
+            # Deletar imagem com boto3
+            filename = post_att.foto
+            url_img = f"https://{bucket_name}.s3.{regiao}.amazonaws.com/"
 
-        db.session.commit()
-        flash('Postagem atualizada!', category='success')
+            new_filename = filename.strip(url_img)
+            # Deleta imagem
+            s3.delete_object(
+                Bucket=bucket_name,
+                Key=new_filename
+            )
+
+            # adicionar remoção do arquivo antigo e opção de manter outras opções originais
+            url_img = retorna_arquivo(nova_foto)
+            post_att.title = novo_titulo
+            post_att.text = novo_texto
+            post_att.date_created = datetime.now().strftime('%d/%m/%Y')
+            post_att.foto = url_img
+            post_att.url = nova_url_insta
+
+            db.session.commit()
+            flash('Postagem atualizada!', category='success')
     return render_template('atualizar.html', posts=postes)
 
 # Cadastra Usuário

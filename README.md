@@ -40,8 +40,8 @@ Ou
 
 ### Como rodar(Docker):
 
-1. docker build -t ~nome_da_imagem~ .
-2. docker run -ip 5000:5000 ~nome_da_imagem~
+1. docker build -t nome_da_imagem .
+2. docker run -ip 5000:5000 nome_da_imagem
 
 
 

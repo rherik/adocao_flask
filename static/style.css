@@ -52,49 +52,36 @@ body{
     background-size: 400% 400%;
 }
 #texto-intro {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    align-content: space-around;
+    display: grid;
+    /* Separa os textos em 4 partes */
+    grid-template-columns: repeat(4, 1fr);
 }
 #texto {
     font-size: var(--fs-300);
     color: var(--lm-text);
-    padding-left: 4rem;
+    padding-left: 2rem;
+    padding-block: 2rem;
 }
-#texto2 {
-    font-size: var(--fs-300);
-    color: var(--lm-text);
-    padding-top: var(--space-md);
-    padding-left: 8rem;
+main, section, form{
+    height: min(120vh);
+    /* padding: var(--space-lg); */
 }
-#texto3 {
-    font-size: var(--fs-300);
-    color: var(--lm-text);
-    padding-top: var(--space-md);
-    padding-left: 12rem;
-    padding-bottom: var(--space-sm);
+main a{
+    text-decoration: none;
+    color: rgb(104, 87, 66);
 }
-section, form{
-    padding-bottom: min(16rem);
+section a{
+    text-decoration: none;
+    color: rgb(104, 87, 66);
 }
-#footer{
+main, section a:hover {
+    color: bisque;
+}
+footer{
     position: fixed;
     display: contents;
     bottom: 0;
     width: 100%;
-}
-#caixa{
-    justify-content: space-around;
-    padding-top: var(--space-lg);
-    font-size: 5px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.25);
-    box-shadow: 10px 10px 5px 0px rgba(24, 24, 24, 0.25);
-    border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border: 1px solid #f0f0f0;
 }
 p{
     padding-top: var(--space-sm);
@@ -125,7 +112,6 @@ p{
     flex-direction: row;
     justify-content: center;
     padding: var(--space-lg);
-    padding-bottom: var(--space-md);
 }
 #fotos{
     min-width: 200px;
@@ -145,4 +131,7 @@ p{
 	100% {
 		background-position: 0% 50%;
 	}
+}
+@media screen and (max-width: 768px) {
+    
 }

@@ -50,6 +50,11 @@ def retorna_posts():
     postes = Post.query.all()
     return render_template('posts_div.html', posts=postes)
 
+@views.route("/adote", methods=['GET'])
+def adote():
+    return render_template("adote.html")
+
+
 @views.route("/crie", methods=['GET', 'POST'])
 def create_post():
     if request.method == "POST":

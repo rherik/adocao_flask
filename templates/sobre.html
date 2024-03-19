@@ -1,26 +1,39 @@
-{% extends "base.html" %}
-{% block title %}Sobre{% endblock %}
-{% block base %}
+{% extends "base.html" %} {% block title %}Sobre{% endblock %} {% block base %}
 <main>
-    <div id="caixa">
-        <div id="texto-intro">
-            <small id="texto">
-                Este é um projeto de incentivo à adoção de vira-latas.
-            </small>
-            <small id="texto">Atualmente vemos uma população de cachorros de rua
-                <br>que poderiam fazer bom uso de um lar, <br>então dê preferência à adoção de cachorros que se encontram na rua.
-            </small>   
-            <small id="texto">
-                Eles são muito amáveis e inteligentes.
-            </small>     
-            <small id="texto">Compartilhe sua história de adoção </small>
-        </div>
-    </div>  
-    <div id="caixa">
-        <div class="container_images">
-            <img id="fotos" src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}">
-            <img id="fotos" src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}">            
-        </div>
-    </div>
+  <div id="texto-intro">
+    <small id="texto">
+      Vira-latas são muito amáveis e inteligentes. <br />Este é um projeto de
+      incentivo à adoção de animais de rua.
+    </small>
+    <small id="texto">
+      Portanto, se você tem uma história de adoção de animais desabrigados
+      <br />compartilhe <a class="" href="/crie">aqui</a>.
+    </small>
+
+    <small id="texto"
+      >Atualmente vemos uma população de cachorros de rua <br />que poderiam
+      fazer bom uso de um lar, <br />então dê preferência à adoção de cachorros
+      que se encontram na rua.
+    </small>
+    <small id="texto">
+      O período de detenção por abandono de animais é de dois à cinco anos, de
+      acordo com a
+      <a
+        href="https://noticias.unb.br/artigos-main/6573-abandono-de-animais-e-crime"
+        target="_blank"
+        >Lei Federal 9.605/98
+        </a>
+    </small>
+  </div>
+  <div class="container_images">
+    <img
+      id="fotos"
+      src="{{ url_for('static', filename='imgs/vl1_brincando.png') }}"
+    />
+    <img
+      id="fotos"
+      src="{{ url_for('static', filename='imgs/vl2_brincando.png') }}"
+    />
+  </div>
 </main>
 {% endblock %}

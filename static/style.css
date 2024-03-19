@@ -37,8 +37,6 @@
     --round-full: 100vmax;    
 }
 body{
-    display: flex;
-    flex-direction: column;
     font-size: var(--fs-400);
     line-height: var(--lh-1-4);
     font-weight: 400;
@@ -63,8 +61,8 @@ body{
     padding-block: 2rem;
 }
 main, section, form{
-    height: min(120vh);
-    /* padding: var(--space-lg); */
+    height: fit-content;
+    padding-bottom: var(--space-lg);
 }
 main a{
     text-decoration: none;
@@ -80,7 +78,7 @@ main, section a:hover {
 footer{
     position: fixed;
     display: contents;
-    bottom: 0;
+    bottom: 0%;
     width: 100%;
 }
 p{

@@ -52,7 +52,7 @@ body{
 #texto-intro {
     display: grid;
     /* Separa os textos em 4 partes */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 #texto {
     font-size: var(--fs-300);
@@ -63,6 +63,13 @@ body{
 main, section, form{
     height: fit-content;
     padding-bottom: var(--space-lg);
+}
+#texto-sobre {
+    height: min(90vh);
+    font-size: var(--fs-300);
+    color: var(--lm-text);
+    padding-left: 2rem;
+    padding-block: 2rem;
 }
 main a{
     text-decoration: none;
